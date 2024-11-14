@@ -1,0 +1,36 @@
+@startuml
+abstract class org.caselab.task3.Vehicle
+class org.caselab.task3.Airplane
+class org.caselab.task3.AirplaneEngine
+class org.caselab.task3.Bike
+class org.caselab.task3.Car
+class org.caselab.task3.CarEngine
+class org.caselab.task3.Engine
+class org.caselab.task3.EngineFactory
+class org.caselab.task3.Ship
+class org.caselab.task3.ShipEngine
+class org.caselab.task3.VehicleFactory
+enum org.caselab.task3.EFuel
+interface org.caselab.task3.IMechanicable
+interface org.caselab.task3.IMover
+interface org.caselab.task3.ITransportable
+org.caselab.task3.Vehicle ..|> org.caselab.task3.ITransportable
+org.caselab.task3.Airplane --|> org.caselab.task3.Vehicle
+org.caselab.task3.Airplane ..|> org.caselab.task3.IMechanicable
+org.caselab.task3.AirplaneEngine --|> org.caselab.task3.Engine
+org.caselab.task3.Bike --|> org.caselab.task3.Vehicle
+org.caselab.task3.Car --|> org.caselab.task3.Vehicle
+org.caselab.task3.Car ..|> org.caselab.task3.IMechanicable
+org.caselab.task3.CarEngine --|> org.caselab.task3.Engine
+org.caselab.task3.Ship --|> org.caselab.task3.Vehicle
+org.caselab.task3.Ship ..|> org.caselab.task3.IMechanicable
+org.caselab.task3.ShipEngine --|> org.caselab.task3.Engine
+org.caselab.task3.Engine ..> org.caselab.task3.EngineFactory
+org.caselab.task3.Engine ..> org.caselab.task3.IMechanicable
+org.caselab.task3.Vehicle ..> org.caselab.task3.VehicleFactory
+org.caselab.task3.EFuel ..> org.caselab.task3.Engine
+org.caselab.task3.ShipEngine --o org.caselab.task3.Ship
+org.caselab.task3.CarEngine --o org.caselab.task3.Car
+org.caselab.task3.AirplaneEngine --o org.caselab.task3.Airplane
+org.caselab.task3.Engine ..|> org.caselab.task3.IMover
+@enduml
