@@ -1,25 +1,21 @@
 package org.caselab.task3;
 
-public final class Airplane extends Vehicle implements IMechanicable {
-    private final AirplaneEngine engine;
+public final class Ship extends Vehicle implements IMechanicable {
+    private final ShipEngine engine;
 
-    public Airplane(String name, int capacity, AirplaneEngine engine) {
+    public Ship(String name, int capacity, ShipEngine engine) {
         super(name, capacity);
         this.engine = engine;
-
-        this.wheels.add(new Wheel(3));
-        this.wheels.add(new Wheel(3));
-        this.wheels.add(new Wheel(1));
-
     }
 
     @Override
     public void move() {
         try {
             this.engine.use();
-            System.out.println(name + " is flying in the sky.");
+            System.out.println(name + " is sailing on the sea.");
 
-        } catch (RuntimeException e) {
+        }
+        catch (RuntimeException e) {
             throw new RuntimeException(e);
         }
 
@@ -27,7 +23,7 @@ public final class Airplane extends Vehicle implements IMechanicable {
 
     @Override
     public String toString() {
-        return "Airplane{" +
+        return "Ship{" +
                 "engine=" + engine +
                 ", name='" + name + '\'' +
                 ", wheels=" + wheels +
@@ -36,7 +32,7 @@ public final class Airplane extends Vehicle implements IMechanicable {
     }
 
     @Override
-    public AirplaneEngine getEngine() {
+    public ShipEngine getEngine() {
         return engine;
     }
 }

@@ -9,10 +9,11 @@ public abstract class Vehicle implements ITransportable {
     protected final ArrayList<Wheel> wheels;
     protected final Capacity capacity;
 
+
     public Vehicle(String name, int capacity) {
         this.name = name;
         this.capacity = new Capacity(capacity);
-        this.wheels = new ArrayList<Wheel>();
+        this.wheels = new ArrayList<>();
     }
 
     public String getName() {
@@ -27,7 +28,14 @@ public abstract class Vehicle implements ITransportable {
         return capacity;
     }
 
-
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "name='" + getName() + '\'' +
+                ", wheels=" + getWheels() +
+                ", capacity=" + getCapacity() +
+                '}';
+    }
 
     public static class Wheel {
         private final int size;
@@ -69,5 +77,12 @@ public abstract class Vehicle implements ITransportable {
             return this;
         }
 
+        @Override
+        public String toString() {
+            return "Capacity{" +
+                    "maximumCapacity=" + getMaximumCapacity() +
+                    ", currentCapacity=" + getCurrentCapacity() +
+                    '}';
+        }
     }
 }

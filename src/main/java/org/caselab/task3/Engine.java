@@ -48,13 +48,17 @@ public abstract sealed class Engine implements IMover permits CarEngine, Airplan
         fuelLevel.next();
     }
 
+    public EFuel getFuel() {
+        return fuel;
+    }
+
 
     public enum EFuelLevel {
         EMPTY{
             @Override
             public EFuelLevel next() {
                 return null; // see below for options for this line
-            };
+            }
         },
         LOW,
         MEDIUM,
